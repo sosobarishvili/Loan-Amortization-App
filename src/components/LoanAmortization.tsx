@@ -171,18 +171,18 @@ function LoanCalculator() {
       <main className="max-w-4xl mx-auto p-6 space-y-10">
         {/* ───── Loan Details ───── */}
         <section
-          className="shadow-xl flex flex-col items-center justify-center rounded-2xl p-14 space-y-6"
+          className="shadow-xl flex flex-col items-center justify-center rounded-2xl p-6 sm:p-10 md:p-14 space-y-6 w-full max-w-5xl mx-auto"
           style={{ background: "var(--loan-details)", borderColor: "var(--border-color)" }}
         >
-          <h2 className="text-xl font-semibold">Loan Details</h2>
+          <h2 className="text-xl md:text-2xl font-semibold text-center">Loan Details</h2>
 
           {/* Inputs row 1 */}
-          <div className="flex gap-5 justify-center items-center w-full">
+          <div className="flex flex-col md:flex-row gap-5 justify-center items-center w-full">
             <input
               aria-label="Principal amount"
               type="text"
               inputMode="decimal"
-              placeholder="💰 Principal Amount"
+              placeholder="💰 Principal Amount"
               className="w-full px-5 py-3 rounded-xl border focus:outline-gray-500"
               style={{ color: "var(--text-color)", borderColor: "var(--border-color)", fontFamily: "inherit" }}
               value={principal}
@@ -193,7 +193,7 @@ function LoanCalculator() {
               aria-label="Annual interest rate"
               type="text"
               inputMode="decimal"
-              placeholder="📈 Annual Interest Rate (%)"
+              placeholder="📈 Annual Interest Rate (%)"
               className="w-full px-5 py-3 rounded-xl border focus:outline-gray-500"
               style={{ color: "var(--text-color)", borderColor: "var(--border-color)", fontFamily: "inherit" }}
               value={annualRate}
@@ -202,12 +202,12 @@ function LoanCalculator() {
           </div>
 
           {/* Inputs row 2 */}
-          <div className="flex gap-5 justify-center items-center w-full">
+          <div className="flex flex-col md:flex-row gap-5 justify-center items-center w-full">
             <input
               aria-label="Loan term in years"
               type="text"
               inputMode="numeric"
-              placeholder="⏳ Loan Term (Years)"
+              placeholder="⏳ Loan Term (Years)"
               className="w-full px-5 py-3 rounded-xl border focus:outline-gray-500"
               style={{ color: "var(--text-color)", borderColor: "var(--border-color)", fontFamily: "inherit" }}
               value={years}
@@ -218,7 +218,7 @@ function LoanCalculator() {
               aria-label="Extra recurring payment"
               type="text"
               inputMode="decimal"
-              placeholder="💵 Extra Recurring Payment (Optional)"
+              placeholder="💵 Extra Recurring Payment (Optional)"
               className="w-full px-5 py-3 rounded-xl border focus:outline-gray-500"
               style={{ color: "var(--text-color)", borderColor: "var(--border-color)", fontFamily: "inherit" }}
               value={extraPayment}
@@ -227,10 +227,10 @@ function LoanCalculator() {
           </div>
 
           {/* Frequency selector */}
-          <div className="flex gap-5 items-center justify-center w-full">
+          <div className="flex flex-col sm:flex-row gap-5 items-center justify-center w-full">
             <button
               aria-label="Set payment frequency to monthly"
-              className={`py-3 px-4 rounded-xl border font-medium transition w-[150px] cursor-pointer ${frequency === "monthly" ? "border-blue-500 text-white bg-blue-500" : ""
+              className={`py-3 px-4 rounded-xl border font-medium transition w-full sm:w-[150px] cursor-pointer ${frequency === "monthly" ? "border-blue-500 text-white bg-blue-500" : ""
                 }`}
               onClick={() => setFrequency("monthly")}
             >
@@ -238,7 +238,7 @@ function LoanCalculator() {
             </button>
             <button
               aria-label="Set payment frequency to yearly"
-              className={`py-3 px-4 rounded-xl border font-medium transition w-[150px] cursor-pointer ${frequency === "yearly" ? "border-blue-500 text-white bg-blue-500" : ""
+              className={`py-3 px-4 rounded-xl border font-medium transition w-full sm:w-[150px] cursor-pointer ${frequency === "yearly" ? "border-blue-500 text-white bg-blue-500" : ""
                 }`}
               onClick={() => setFrequency("yearly")}
             >
@@ -248,7 +248,7 @@ function LoanCalculator() {
 
           {/* Validation errors */}
           {errors.length > 0 && (
-            <ul className="text-red-500 text-sm list-disc list-inside">
+            <ul className="text-red-500 text-sm list-disc list-inside w-full max-w-xl">
               {errors.map((err) => (
                 <li key={err}>{err}</li>
               ))}
@@ -259,12 +259,13 @@ function LoanCalculator() {
           <button
             aria-label="Calculate loan details"
             disabled={isCalculating}
-            className="w-1/2 bg-[#34A853] text-white py-3 mt-2 rounded-xl text-xl font-bold hover:bg-green-700 transition border border-green-800 cursor-pointer uppercase disabled:opacity-60 disabled:cursor-not-allowed"
+            className="w-full sm:w-1/2 bg-[#34A853] text-white py-3 mt-2 rounded-xl text-lg md:text-xl font-bold hover:bg-green-700 transition border border-green-800 cursor-pointer uppercase disabled:opacity-60 disabled:cursor-not-allowed"
             onClick={handleCalculate}
           >
             {isCalculating ? <Spinner /> : "Calculate loan details"}
           </button>
         </section>
+
 
         {/* ───── Summary ───── */}
         <section className="shadow-xl rounded-2xl px-4 py-5 sm:p-6" style={{ backgroundColor: "var(--card-bg)" }}>
