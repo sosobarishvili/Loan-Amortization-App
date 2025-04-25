@@ -1,0 +1,32 @@
+/* Light mode variables */
+:root {
+  --bg-color: #ebebeb;
+  --text-color: #000000;
+  --loan-details: rgba(255, 255, 255, 1);
+  --card-bg: #f8f8f8;
+  --summary-saved-bg: linear-gradient(45deg, #99C4F5, #0095FF);
+  --summary-payment-bg: linear-gradient(135deg, rgba(147, 74, 226, 1), rgba(182, 114, 255, 1) 80%);
+  --summary-repayment-bg: linear-gradient(135deg, rgba(52, 168, 83, 1), rgba(74, 224, 114, 1)80%);
+  --border-color: #e0e0e0;
+  --hover-bg: #f5f5f5;
+  --table-br: #EAE8E8;
+}
+
+/* Dark mode variables */
+.dark {
+  --bg-color: #272626;
+  --text-color: #f8f8f8;
+  --loan-details: linear-gradient(135deg, rgba(27, 175, 169, 0.3), rgba(42, 42, 42, 1) 60%);
+  --card-bg: #2d2d2d;
+  --summary-saved-bg: linear-gradient(135deg, rgba(74, 144, 226, 0.5), rgba(42, 42, 42, 1) 80%);
+  --summary-payment-bg: linear-gradient(135deg, rgba(147, 74, 226, 0.5), rgba(42, 42, 42, 1) 80%);
+  --summary-repayment-bg: linear-gradient(135deg, rgba(52, 168, 83, 1), rgba(42, 42, 42, 1) 80%);
+  --border-color: #757373;
+  --hover-bg: #333333;
+  --table-br: #464646;
+}
+
+input::placeholder {
+  color: var(--text-color);
+  opacity: 0.8;
+}
